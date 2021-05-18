@@ -17,6 +17,7 @@
 输出：3
 
 # BFS 时间复杂度：O(n^2)  空间复杂度：O(n)
+# collections.deque 可用 list 代替
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
         provinces = len(isConnected)
