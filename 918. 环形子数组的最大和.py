@@ -23,3 +23,32 @@ for x in A:
     ans = max(ans, cur)
 return ans
 
+本题可以分为两种情况讨论
+
+无环：最大和子数组不包含首尾元素
+有环：最大和子数组包含首尾元素
+
+无环状态下，即为 53. 最大子序和
+有环状态下，要使得两端之和最大，必须让中间的子数组最小，即最后有环情况下的最大子数组和为：sum(nums)-min(middle)
+
+class Solution:
+    def maxSubarraySumCircular(self, nums: List[int]) -> int:
+        n=len(nums)   
+        max_=float('-inf')
+        #无环 
+        pre=0
+        for i in range(n):
+            pre=max(0,pre)+nums[i]
+            max_=max(max_,pre)
+        # 如果最子数组和小于0，说明数组中全为负数，返回最大负数即可
+        if max_<0:return max_
+        #有环
+        pre=0
+        min_=float('inf')
+        for i in range(n):
+            pre=min(0,pre)+nums[i]
+            min_=min(min_,pre)
+        
+        return max(max_,sum(nums)-min_)
+        
+
