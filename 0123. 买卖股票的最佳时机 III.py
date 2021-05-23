@@ -38,6 +38,9 @@
 
 完成了全部两笔交易。
 
+由于第一个状态的利润显然为 0，因此我们可以不用将其记录。
+对于剩下的四个状态，我们分别将它们的最大利润记为 buy1 sell1 buy2 sell2 
+
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         n = len(prices)
@@ -49,5 +52,7 @@ class Solution:
             buy2 = max(buy2, sell1 - prices[i])
             sell2 = max(sell2, buy2 + prices[i])
         return sell2
+    
+
 
 
