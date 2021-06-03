@@ -10,3 +10,15 @@
 输出：[0,1]
 解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
 
+# hashtable 时间复杂度：O(N)
+创建一个哈希表，对于每一个 x，我们首先查询哈希表中是否存在 target - x，然后将 x 插入到哈希表中，即可保证不会让 x 和自己匹配。
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hashtable = dict()
+        for i, num in enumerate(nums):
+            if target - num in hashtable:
+                return [hashtable[target - num], i]
+            hashtable[nums[i]] = i
+        return []
+
