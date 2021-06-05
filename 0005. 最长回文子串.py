@@ -62,5 +62,7 @@ class Solution:
                     max_len = j - i + 1
                     begin = i
         return s[begin:begin + max_len]
+    
+注：leetcode还有其他更优解法
 
 
