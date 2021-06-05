@@ -12,3 +12,21 @@ Y   I   R
 
 输入：s = "PAYPALISHIRING", numRows = 3
 输出："PAHNAPLSIIGYIR"
+
+算法流程：按顺序遍历字符串 s
+1、res[i] += c： 把每个字符 c 填入对应行 s_i 
+2、i += flag：更新当前字符 c 对应的行索引
+3、flag = - flag：在达到 Z 字形转折点时，执行反向。
+
+时间复杂度 O(N)
+class Solution:
+    def convert(self, s: str, numRows: int) -> str:
+        if numRows < 2: return s
+        res = ["" for _ in range(numRows)]
+        i, flag = 0, -1
+        for c in s:
+            res[i] += c
+            if i == 0 or i == numRows - 1: flag = -flag
+            i += flag
+        return "".join(res)
+
