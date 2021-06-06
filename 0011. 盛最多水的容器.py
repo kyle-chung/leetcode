@@ -13,6 +13,9 @@
 输出：16
 
 # 双指针 时间复杂度 O(N)
+设置双指针 i,j 分别位于容器壁两端
+指针移动规：每次选定围成水槽两板高度 h[i],h[j] 中的短板，向中间收窄 1 格。
+
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         i, j, res = 0, len(height) - 1, 0
