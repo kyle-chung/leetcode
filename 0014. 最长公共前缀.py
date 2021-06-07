@@ -26,4 +26,6 @@ class Solution:
                 return strs[0][:i]
         
         return strs[0]
+    
+注：另有二分查找和分治法，但时间更复杂
 
