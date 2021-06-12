@@ -20,3 +20,19 @@
 输入：haystack = "aaaaa", needle = "bba"
 输出：-1
 
+python 对应函数为 str.find()
+
+本题是经典的字符串单模匹配的模型，因此可以使用字符串匹配算法解决。
+常见的字符串匹配算法包括暴力匹配、Knuth-Morris-Pratt 算法、Boyer-Moore 算法、Sunday 算法等
+
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        if needle not in haystack:
+            return -1
+        elif needle == '':
+            return 0
+        else:
+            for i in range(len(haystack)):
+                if haystack[i:len(needle)+i] == needle[:]:
+                    return i
+
