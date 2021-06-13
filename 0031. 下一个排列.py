@@ -29,7 +29,7 @@ class Solution:
             while j >= 0 and nums[i] >= nums[j]:
                 j -= 1
             nums[i], nums[j] = nums[j], nums[i]
-        # 排序
+        # 升序排序，未排序前为降序
         left, right = i + 1, len(nums) - 1
         while left < right:
             nums[left], nums[right] = nums[right], nums[left]
