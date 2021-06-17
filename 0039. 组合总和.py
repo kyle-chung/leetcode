@@ -26,7 +26,7 @@ candidates 中的数字可以无限制重复被选取。
   [3,5]
 ]
 
-
+# 回溯 时间复杂度：O(S)，其中 S 为所有可行解的长度之和
 class Solution:
     def combinationSum(self, candidates, target):
         ans = []
