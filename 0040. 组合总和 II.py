@@ -57,6 +57,33 @@ candidates 中的每个数字在每个组合中只能使用一次。
 这就说明不可能再选择若干个和为 rest 的数放入列表了。
 此时，我们就可以直接回溯。
 
+# backtracking 时间复杂度：O(2^n * n)
+class Solution:
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+        def dfs(pos: int, rest: int):
+            nonlocal sequence
+            if rest == 0:
+                ans.append(sequence[:])
+                return
+            if pos == len(freq) or rest < freq[pos][0]:
+                return
+            
+            dfs(pos + 1, rest)
+
+            most = min(rest // freq[pos][0], freq[pos][1])
+            for i in range(1, most + 1):
+                sequence.append(freq[pos][0])
+                dfs(pos + 1, rest - i * freq[pos][0])
+            sequence = sequence[:-most]
+        
+        freq = sorted(collections.Counter(candidates).items())
+        ans = list()
+        sequence = list()
+        dfs(0, target)
+        return ans
+
+
+
 
 
 
