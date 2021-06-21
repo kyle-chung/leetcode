@@ -33,11 +33,13 @@
 class Solution:
     def jump(self, nums: List[int]) -> int:
         n = len(nums)
+#       对应 目前能跳到的最远位置，跳跃次数，上次跳跃可达范围右边界（下次的最右起跳点）
         maxPos, end, step = 0, 0, 0
         for i in range(n - 1):
             if maxPos >= i:
                 maxPos = max(maxPos, i + nums[i])
+#               到达上次跳跃能到达的右边界了
                 if i == end:
-                    end = maxPos
-                    step += 1
+                    end = maxPos # 目前能跳到的最远位置变成了下次起跳位置的有边界
+                    step += 1    # 进入下一次跳跃
         return step
