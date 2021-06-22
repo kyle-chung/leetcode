@@ -31,5 +31,16 @@ class Solution:
         backtrack()
         return res
 
+# dfs
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        if len(nums) == 1: return [nums]
+        elif len(nums) == 2: return [nums,nums[::-1]]
 
+        res = []
+        for pos,i in enumerate(nums):
+            temp = self.permute(nums[:pos]+nums[pos+1:])
+            for item in temp:
+                res.append([i]+item)        
+        return res
 
