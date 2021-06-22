@@ -11,7 +11,6 @@
 输出：[[0,1],[1,0]]
 
 # backtracking
-
 class Solution:
     def permute(self, nums):
         def backtrack(first = 0):
