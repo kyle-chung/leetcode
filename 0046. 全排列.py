@@ -35,6 +35,12 @@ class Solution:
         return res
 
 # dfs
+问题：
+1、递归函数的内存问题，可以看到每个递归函数切割并且向下传递了一个nums(注意这里切片是产生了一个新数组)
+   那么空间复杂度约等于 递归深度 * O(N), 直接大概扩大了n倍
+2、每个递归函数里都用了切片： nums[:i]+nums[i+1:]) ，时间复杂度是O(n)(切片的时间复杂度等于切片数组的大小)
+   时间复杂度又扩大了n倍。虽然这个方法简单无脑，但是这种做法本质上不够尊重stack这种线性数据结构的特点吧，因为过度切片的问题。
+
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         if len(nums) == 1: return [nums]
