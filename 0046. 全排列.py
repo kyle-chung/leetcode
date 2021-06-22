@@ -15,7 +15,6 @@
 分隔符区分了左右两个部分。假设这个位置我们要填 10 这个数，为了维护数组，我们将 2 和 10 交换
 即能使得数组继续保持分隔符左边的数已经填过，右边的待填 [8, 9, 10 | 2, 5]
 
-
 class Solution:
     def permute(self, nums):
         def backtrack(first = 0):
