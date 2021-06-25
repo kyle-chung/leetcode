@@ -7,6 +7,9 @@
 输入：intervals = [[1,3],[6,9]], newInterval = [2,5]
 输出：[[1,5],[6,9]]
 
+# 时间复杂度：O(n)
+很多list技巧
+
 class Solution:
     def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
         left, right = newInterval
