@@ -15,6 +15,23 @@
 2. 向下 -> 向下 -> 向右
 3. 向下 -> 向右 -> 向下
 
+# dp 时间复杂度：O(mn)
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+#       初始化第一行和列元素都为1
+        f = [[1] * n] + [[1] + [0] * (n - 1) for _ in range(m - 1)]
+        for i in range(1, m):
+            for j in range(1, n):
+                f[i][j] = f[i - 1][j] + f[i][j - 1]
+        return f[m - 1][n - 1]
+
+# 方法二：组合数学 时间复杂度：O(m)
+从左上角到右下角的过程中，我们需要移动 m+n-2 次，其中有 m-1 次向下移动，n-1 次向右移动
+因此路径的总数，就等于从 m+n-2 次移动中选择 m-1 次向下移动的方案数，即组合数：
+
+( m+n−2
+  m−1  )
+
 
 
 
