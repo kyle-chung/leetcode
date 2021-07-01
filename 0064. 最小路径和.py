@@ -8,7 +8,16 @@
 输出：7
 解释：因为路径 1→3→1→1→1 的总和最小。
 
+# dp 时间复杂度 O(M×N)
+此题是典型的动态规划题目
 
-
-
+class Solution:
+    def minPathSum(self, grid: [[int]]) -> int:
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if i == j == 0: continue
+                elif i == 0:  grid[i][j] = grid[i][j - 1] + grid[i][j]
+                elif j == 0:  grid[i][j] = grid[i - 1][j] + grid[i][j]
+                else: grid[i][j] = min(grid[i - 1][j], grid[i][j - 1]) + grid[i][j]
+        return grid[-1][-1]
 
