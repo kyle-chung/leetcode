@@ -30,7 +30,7 @@ class Solution:
 # 位运算
 class Solution:
     def addBinary(self, a, b) -> str:
-        x, y = int(a, 2), int(b, 2)
+        x, y = int(a, base=2), int(b, base=2)
         while y:
             answer = x ^ y
             carry = (x & y) << 1
