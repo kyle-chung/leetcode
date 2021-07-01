@@ -10,5 +10,18 @@
 输出：[1,2,4]
 解释：输入数组表示数字 123。
 
+# easy
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        n = len(digits)
+        pos = -1
+        while abs(pos) <= n:
+            if digits[pos] != 9: 
+                digits[pos] += 1
+                return digits
+            else: digits[pos] = 0
+            pos -= 1
+
+        return [1] + digits
 
 
