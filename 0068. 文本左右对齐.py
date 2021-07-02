@@ -29,6 +29,7 @@ maxWidth = 16
   "acknowledgment  ",
   "shall be        "
 ]
+
 解释: 注意最后一行的格式应为 "shall be    " 而不是 "shall     be",
      因为最后一行应为左对齐，而不是左右两端对齐。       
      第二行同样为左对齐，这是因为这行只包含一个单词。
