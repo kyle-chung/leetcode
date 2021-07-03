@@ -18,7 +18,7 @@ class Solution:
         left = 0
         right = line * row
         while left < right:
-            i, j = divmod((left + right) // 2, row)
+            i, j = divmod((left + right) // 2, row) # 如果参数 a 与 参数 b 都是整数，函数返回的结果相当于 (a // b, a % b)
             if matrix[i][j] == target:
                 return True
             if matrix[i][j] < target:
