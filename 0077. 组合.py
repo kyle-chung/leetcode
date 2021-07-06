@@ -35,6 +35,7 @@
 
 方法二：按照每一个数选与不选画出二叉树
 
+以下为方法一
 # backtrack求过易懂框架版
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
