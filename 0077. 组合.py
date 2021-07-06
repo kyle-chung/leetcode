@@ -30,6 +30,10 @@
 
 依次类推（后面部分省略），以上描述体现的 递归 结构是：在以 n 结尾的候选数组里，选出若干个元素
 
+优化：分析搜索起点的上界进行剪枝
+因此，搜索起点有上界
+
+
 # backtrack求过易懂框架版
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
