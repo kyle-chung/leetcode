@@ -18,3 +18,5 @@ class Solution(object):
     
 注意代码中res[:]是必须的，因为切片是引用新的对象，此时在循环中res[:]是不更新的
 而res是不断有元素push进去的，很trick
+
+# backtracking
