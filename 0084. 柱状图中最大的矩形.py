@@ -15,6 +15,9 @@
 # 单调栈 时间复杂度：O(N)
 我们可以对数组从左向右进行遍历，同时维护一个「可能作为答案」的数据结构，其中按照从小到大的顺序存放了一些 j（高度） 值
 
+用相同的方法，我们从右向左进行遍历
+在得到了左右两侧的柱子之后，我们就可以计算出每根柱子对应的左右边界，并求出答案了
+
 class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
         n = len(heights)
