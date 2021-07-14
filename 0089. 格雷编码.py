@@ -40,6 +40,16 @@
 G(n+1) = G'(n) ∪ R'(n)
 拼接两个集合即可得到下一阶格雷码
 
+class Solution:
+    def grayCode(self, n: int) -> List[int]:
+        res, head = [0], 1
+        for i in range(n):
+            for j in range(len(res) - 1, -1, -1):
+                res.append(head + res[j])
+            head <<= 1
+        return res
+
+
       
       
       
