@@ -25,8 +25,10 @@ class Solution:
         a, b, c = 0, 1, 0
         for i in range(1, n + 1):
             c = 0
+#           第一种情况是我们使用了一个字符
             if s[i - 1] != '0':
                 c += b
+#           第二种情况是我们使用了两个字符
             if i > 1 and s[i - 2] != '0' and int(s[i-2:i]) <= 26:
                 c += a
             a, b = b, c
