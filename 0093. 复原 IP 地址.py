@@ -14,7 +14,7 @@
 输入：s = "0000"
 输出：["0.0.0.0"]
 
-
+# backtrack
 class Solution(object):
     def restoreIpAddresses(self, s):
         self.res = []
