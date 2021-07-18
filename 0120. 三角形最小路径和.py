@@ -18,16 +18,19 @@
 # dp 时间复杂度：O(n^2)，其中 n 是三角形的行数
 class Solution:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
-        n = len(triangle)
-        f = [0] * n
-        f[0] = triangle[0][0]
-
-        for i in range(1, n):
-            f[i] = f[i - 1] + triangle[i][i]
-            for j in range(i - 1, 0, -1):
-                f[j] = min(f[j - 1], f[j]) + triangle[i][j]
-            f[0] += triangle[i][0]
+        if len(triangle) == 1: return triangle[0][0]
+        triangle[1][0] += triangle[0][0]
+        triangle[1][-1] += triangle[0][-1]
         
-        return min(f)
+        pos = 2
+        while pos < len(triangle):
+            triangle[pos][0] += triangle[pos-1][0]
+            triangle[pos][-1] += triangle[pos-1][-1]
+            for i in range(1,len(triangle[pos])-1):
+                triangle[pos][i] += min(triangle[pos-1][i],triangle[pos-1][i-1])
+            
+            pos += 1
+
+        return min(triangle[-1])
 
 
