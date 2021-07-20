@@ -9,6 +9,9 @@
 解释：最长数字连续序列是 [1, 2, 3, 4]。它的长度为 4。
 
 # hashmap
+匹配的过程，暴力的方法是 O(n) 遍历数组去看是否存在这个数
+但其实更高效的方法是用一个哈希表存储数组中的数，这样查看一个数是否存在即能优化至 O(1) 的时间复杂度
+
 class Solution:
     def longestConsecutive(self, nums):
         longest_streak = 0
