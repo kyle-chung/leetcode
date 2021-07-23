@@ -15,6 +15,8 @@
 设 f(i,j) 表示 s[i..j] 是否为回文串，那么有状态转移方程：
 f(i,j) = f(i+1, j-1) and s[i] == s[j]
 
+预处理完成之后，我们只需要 O(1)O(1) 的时间就可以判断任意 s[i..j] 是否为回文串了
+
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
         n = len(s)
@@ -40,4 +42,43 @@ class Solution:
 
         dfs(0)
         return ret
+
+# 回溯 + 记忆化搜索 复杂度同上
+class Solution:
+    def partition(self, s: str) -> List[List[str]]:
+        n = len(s)
+
+        ret = list()
+        ans = list()
+
+        @cache
+        def isPalindrome(i: int, j: int) -> int:
+            if i >= j:
+                return 1
+            return isPalindrome(i + 1, j - 1) if s[i] == s[j] else -1
+
+        def dfs(i: int):
+            if i == n:
+                ret.append(ans[:])
+                return
+            
+            for j in range(i, n):
+                if isPalindrome(i, j) == 1:
+                    ans.append(s[i:j+1])
+                    dfs(j + 1)
+                    ans.pop()
+
+        dfs(0)
+        isPalindrome.cache_clear()
+        return ret
+
+
+
+
+
+
+
+
+
+
 
