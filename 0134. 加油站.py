@@ -24,3 +24,21 @@ cost = [3,4,5,1,2]
 开往 3 号加油站，你需要消耗 5 升汽油，正好足够你返回到 3 号加油站。
 因此，3 可为起始索引。
 
+# 时间复杂度：O(N)
+首先判断总gas能不能大于等于总cost，如果总gas不够，一切都白搭
+再就是找总（gas-cost）的最低点，不管正负（当然如果最低点都是正的话那肯定能跑完了）；
+找到最低点后，如果有解，那么解就是最低点的下一个点
+
+class Solution:
+    def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
+        if sum(cost) > sum(gas): return -1
+
+        cost[0] = gas[0] - cost[0]
+
+        res = 0
+        for i in range(1,len(cost)):
+            cost[i] = gas[i] - cost[i] + cost[i-1]
+            if cost[i] < cost[res]: 
+                res = i
+
+        return res+1 if res+1 < len(cost) else 0
