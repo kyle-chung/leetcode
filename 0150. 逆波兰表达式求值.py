@@ -45,3 +45,5 @@ class Solution:
                 stack.append(num)
             
         return stack[0]
+    
+无论try语句中是否抛出异常，finally中的语句一定会被执行
