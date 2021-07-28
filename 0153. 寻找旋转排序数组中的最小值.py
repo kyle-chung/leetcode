@@ -10,3 +10,16 @@
 输入：nums = [3,4,5,1,2]
 输出：1
 解释：原数组为 [1,2,3,4,5] ，旋转 3 次得到输入数组。
+
+# 二分 时间复杂度 O(logn)
+class Solution:
+    def findMin(self, nums: List[int]) -> int:    
+        low, high = 0, len(nums) - 1
+        while low < high:
+            pivot = low + (high - low) // 2
+            if nums[pivot] < nums[high]:
+                high = pivot 
+            else:
+                low = pivot + 1
+        return nums[low]
+
