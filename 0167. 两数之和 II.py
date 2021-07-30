@@ -9,3 +9,24 @@
 输入：numbers = [2,7,11,15], target = 9
 输出：[1,2]
 解释：2 与 7 之和等于目标数 9 。因此 index1 = 1, index2 = 2 。
+
+# 双指针 时间复杂度：O(n)
+初始时两个指针分别指向第一个元素位置和最后一个元素的位置
+每次计算两个指针指向的两个元素之和，并和目标值比较
+如果两个元素之和等于目标值，则发现了唯一解
+如果两个元素之和小于目标值，则将左侧指针右移一位。如果两个元素之和大于目标值，则将右侧指针左移一位
+
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        low, high = 0, len(numbers) - 1
+        while low < high:
+            total = numbers[low] + numbers[high]
+            if total == target:
+                return [low + 1, high + 1]
+            elif total < target:
+                low += 1
+            else:
+                high -= 1
+
+        return [-1, -1]
+
