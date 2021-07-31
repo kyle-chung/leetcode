@@ -36,5 +36,8 @@ class Solution:
             ans.append(chr(columnNumber % 26 + ord("A")))
             columnNumber //= 26
         return "".join(ans[::-1])
+    
+ord() 函数是 chr() 函数（对于8位的ASCII字符串）的配对函数
+它以一个字符（长度为1的字符串）作为参数，返回对应的 ASCII 数值
 
 
