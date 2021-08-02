@@ -20,8 +20,7 @@
 考虑到从 1 到 n 的每个数字，只有 5, 10, 15, 20, 25, 30, ... 等等至少有一个因子 5。
 所以，我们不必一步一步的往上迭代，可以五步的往上迭代
 
-def trailingZeroes(self, n: int) -> int:
-        
+def trailingZeroes(self, n: int) -> int:     
     zero_count = 0
     for i in range(5, n + 1, 5):
         power_of_5 = 5
@@ -30,6 +29,17 @@ def trailingZeroes(self, n: int) -> int:
             power_of_5 *= 5
 
     return zero_count
+  
+# 高效的计算因子 5 O(logn)
+我们不必每次尝试 5 的幂，而是每次将 n 本身除以 5
+
+def trailingZeroes(self, n: int) -> int:
+    zero_count = 0
+    while n > 0:
+        n //= 5
+        zero_count += n
+    return zero_count
+
 
 
 
