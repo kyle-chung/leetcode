@@ -11,3 +11,24 @@
 
 输入：s = "AAAAAAAAAAAAA"
 输出：["AAAAAAAAAA"]
+
+
+这个问题的衍生问题是解决任意长度 L 的相同问题
+
+# 线性时间窗口切片 + HashSet
+时间复杂度：O((N−L)L)
+空间复杂度：O((N−L)L) 去存储 HashSet，由于 L=10 最终为时间复杂度为 O(N)
+
+class Solution:
+    def findRepeatedDnaSequences(self, s: str) -> List[str]:
+        L, n = 10, len(s)     
+        seen, output = set(), set()
+
+        # iterate over all sequences of length L
+        for start in range(n - L + 1):
+            tmp = s[start:start + L]
+            if tmp in seen:
+                output.add(tmp[:])
+            seen.add(tmp)
+        return output
+
