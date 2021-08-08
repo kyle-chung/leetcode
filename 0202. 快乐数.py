@@ -40,5 +40,8 @@ def isHappy(self, n: int) -> bool:
         n = get_next(n)
 
     return n == 1
+python divmod() 函数把除数和余数运算结果结合起来，返回一个包含商和余数的元组(a // b, a % b)。
+
+
 
 
