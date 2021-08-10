@@ -18,6 +18,7 @@ class Solution:
             if is_prime[i]:
                 count += 1
                 # 从 i*i 开始标记
+                # reason：假设 y < i*i，且 y/i = x(显然 x<i),则 is_prime[j]在 j == x 时已标记为0
                 for j in range(i*i, n, i):
                     is_prime[j] = 0
 
