@@ -13,3 +13,27 @@
 
 输入：s = "foo", t = "bar"
 输出：false
+
+本题本质就是找到两个子母中不同字符从左到右的的index 列表是否完全一致
+
+# index
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        return all(s.index(s[i]) == t.index(t[i])  for i in range(len(s)))
+
+# zip
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        return len(set(s)) == len(set(t)) and len(set(s)) == len(set(zip(s, t)))
+      
+# haspmap
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        dic1=dict()
+        dic2=dict()
+        for i in range(len(s)):
+            if (s[i] in dic1 and dic1[s[i]]!=t[i]) or (t[i] in dic2 and dic2[t[i]]!=s[i]):
+                return False
+            dic1[s[i]]=t[i]
+            dic2[t[i]]=s[i]
+        return True
