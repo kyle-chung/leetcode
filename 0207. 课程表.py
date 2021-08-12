@@ -110,6 +110,7 @@ class Solution:
             if not dfs(i, adjacency, flags): return False
         return True
 
+DFS比较复杂需要看leetcode图解
 
 
 
