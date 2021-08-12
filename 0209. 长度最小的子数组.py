@@ -44,7 +44,27 @@ class Solution:
 在很多语言中，都有现成的库和函数来为我们实现这里二分查找(有序)大于等于某个数的第一个位置的功能
 如 Python 中的 bisect.bisect_left
 
+# sliding window O(n)
+定义两个指针 start 和 end 分别表示子数组（滑动窗口窗口）的开始位置和结束位置
 
+class Solution:
+    def minSubArrayLen(self, s: int, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        
+        n = len(nums)
+        ans = n + 1
+        start, end = 0, 0
+        total = 0
+        while end < n:
+            total += nums[end]
+            while total >= s:
+                ans = min(ans, end - start + 1)
+                total -= nums[start]
+                start += 1
+            end += 1
+        
+        return 0 if ans == n + 1 else ans
 
 
 
