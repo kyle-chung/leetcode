@@ -13,7 +13,7 @@
 输入：target = 4, nums = [1,4,4]
 输出：1
 
-# 前缀和 + 二分查找
+# 前缀和 + 二分查找 O(nlogn)
 
 为了使用二分查找，需要额外创建一个数组 sums 用于存储数组 nums 的前缀和
 其中 sums[i] 表示从 nums[0] 到 nums[i−1] 的元素和
@@ -42,7 +42,7 @@ class Solution:
         return 0 if ans == n + 1 else ans
 
 在很多语言中，都有现成的库和函数来为我们实现这里二分查找大于等于某个数的第一个位置的功能
-如Python 中的 bisect.bisect_left
+如 Python 中的 bisect.bisect_left
 
 
 
