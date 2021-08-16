@@ -18,6 +18,26 @@
      偷窃到的最高金额 = 1 + 3 = 4 。
 
   
+# dp O(N)
+环状排列意味着第一个房子和最后一个房子中只能选择一个偷窃，因此可以把此环状排列房间问题约化为两个单排排列房间子问题：
+
+在不偷窃第一个房子的情况下（即 nums[1:]），最大金额是 p_1
+
+在不偷窃最后一个房子的情况下（即 nums[:n-1]），最大金额是 p_2 
+
+综合偷窃最大金额： 为以上两种情况的较大值，即 max(p1,p2)
+  
+class Solution:
+    def rob(self, nums: [int]) -> int:
+        def my_rob(nums):
+            cur, pre = 0, 0
+            for num in nums:
+                cur, pre = max(pre + num, cur), cur
+            return cur
+        return max(my_rob(nums[:-1]),my_rob(nums[1:])) if len(nums) != 1 else nums[0]
+
+
+  
   
   
   
