@@ -29,7 +29,7 @@ class Solution:
                 if cn > n:
                     break
                 path.append(cn)
-                backtrack(cn+1, path, k-1, n-cn)
+                backtrack(cn+1, path, k-1, n-cn)   上下共三行，可简化为 backtrack(cn+1, path+[cn], k-1, n-cn)
                 path.pop()
             return 
 
