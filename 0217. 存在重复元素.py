@@ -6,3 +6,8 @@
 
 输入: [1,2,3,1]
 输出: true
+
+# 无敌简单题
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        return len(list(set(nums))) < len(nums)
