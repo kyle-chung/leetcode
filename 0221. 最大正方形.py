@@ -9,6 +9,7 @@
 
 状态转移方程如下：
 dp(i,j) = min(dp(i−1,j),dp(i−1,j−1),dp(i,j−1)) + 1
+
 class Solution:
     def maximalSquare(self, matrix: List[List[str]]) -> int:
         if len(matrix) == 0 or len(matrix[0]) == 0:
