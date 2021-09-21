@@ -18,6 +18,7 @@
 
 class Solution:
     def summaryRanges(self, nums):
+#       Sentinel Node
         nums.append(2 ** 32)
         ret, start = [], 0
         for i in range(1,len(nums)):
