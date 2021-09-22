@@ -8,6 +8,8 @@
 输出：true
 解释：20 = 1
 
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/power-of-two
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+# 位运算
+class Solution:
+    def isPowerOfTwo(self, n: int) -> bool:
+        return n > 0 and n & (n - 1) == 0
+
