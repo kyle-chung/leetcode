@@ -22,6 +22,7 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> List[int]:
         ret = functools.reduce(lambda x, y: x ^ y, nums)
+#       div即是mask，获取方式不同
         div = 1
         while div & ret == 0:
             div <<= 1
