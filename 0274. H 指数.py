@@ -20,7 +20,7 @@ h 指数的定义：h 代表“高引用次数”（high citations），一名�
 输入：citations = [1,3,1]
 输出：1
 
-# 排序 O(nlogn) O(logn)
+# 排序 O(nlogn) O(logn) 为排序的空间复杂度
 将初始的 H 指数 h 设为 0
 
 class Solution:
@@ -32,7 +32,7 @@ class Solution:
             i += 1
         return h
       
-# 计数排序
+# 计数排序 O(n) O(n)
 新建并维护一个数组 counter 用来记录当前引用次数的论文有几篇
 class Solution:
     def hIndex(self, citations: List[int]) -> int:
