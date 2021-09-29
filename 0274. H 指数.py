@@ -19,3 +19,18 @@ h 指数的定义：h 代表“高引用次数”（high citations），一名�
 
 输入：citations = [1,3,1]
 输出：1
+
+# 排序 O(nlogn) O(logn)
+class Solution:
+    def hIndex(self, citations: List[int]) -> int:
+        sorted_citation = sorted(citations, reverse = True)
+        h = 0; i = 0; n = len(citations)
+        while i < n and sorted_citation[i] > h:
+            h += 1
+            i += 1
+        return h
+
+作者：LeetCode-Solution
+链接：https://leetcode-cn.com/problems/h-index/solution/h-zhi-shu-by-leetcode-solution-fnhl/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
