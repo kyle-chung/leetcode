@@ -21,6 +21,8 @@ h 指数的定义：h 代表“高引用次数”（high citations），一名�
 输出：1
 
 # 排序 O(nlogn) O(logn)
+将初始的 H 指数 h 设为 0
+
 class Solution:
     def hIndex(self, citations: List[int]) -> int:
         sorted_citation = sorted(citations, reverse = True)
@@ -29,8 +31,21 @@ class Solution:
             h += 1
             i += 1
         return h
+      
+# 计数排序
+新建并维护一个数组 counter 用来记录当前引用次数的论文有几篇
+class Solution:
+    def hIndex(self, citations: List[int]) -> int:
+        n = len(citations); tot = 0
+        counter = [0] * (n+1)
+        for c in citations:
+            if c >= n:
+                counter[n] += 1
+            else:
+                counter[c] += 1
+        for i in range(n, -1, -1):
+            tot += counter[i]
+            if tot >= i:
+                return i
+        return 0
 
-作者：LeetCode-Solution
-链接：https://leetcode-cn.com/problems/h-index/solution/h-zhi-shu-by-leetcode-solution-fnhl/
-来源：力扣（LeetCode）
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
