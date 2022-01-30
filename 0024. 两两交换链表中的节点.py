@@ -27,11 +27,13 @@ class Solution:
         return newHead
 
 # 迭代 O(n) O(1)
+
 class Solution:
     def swapPairs(self, head: ListNode) -> ListNode:
         dummyHead = ListNode(0)
         dummyHead.next = head
         temp = dummyHead
+#       交换之前的节点关系是 temp -> node1 -> node2，交换之后的节点关系要变成 temp -> node2 -> node1
         while temp.next and temp.next.next:
             node1 = temp.next
             node2 = temp.next.next
@@ -41,7 +43,4 @@ class Solution:
             temp = node1
         return dummyHead.next
 
-作者：LeetCode-Solution
-链接：https://leetcode-cn.com/problems/swap-nodes-in-pairs/solution/liang-liang-jiao-huan-lian-biao-zhong-de-jie-di-91/
-来源：力扣（LeetCode）
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
