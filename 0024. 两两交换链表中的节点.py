@@ -17,6 +17,9 @@
 输出：[1]
 
 # recur O(n) O(n)
+如果链表中至少有两个节点，则在两两交换链表中的节点之后，原始链表的头节点变成新的链表的第二个节点，原始链表的第二个节点变成新的链表的头节点
+链表中的其余节点的两两交换可以递归地实现
+
 class Solution:
     def swapPairs(self, head: ListNode) -> ListNode:
         if not head or not head.next:
@@ -27,7 +30,6 @@ class Solution:
         return newHead
 
 # 迭代 O(n) O(1)
-
 class Solution:
     def swapPairs(self, head: ListNode) -> ListNode:
         dummyHead = ListNode(0)
