@@ -50,7 +50,7 @@ public ListNode mergeTwoLists(ListNode a, ListNode b) {
     return head.next;
 }
 
-方法一：顺序合并
+方法一：顺序合并 O(k^2*n) O(1)
 用一个变量 ans 来维护以及合并的链表，第 i 次循环把第 i 个链表和 ans 合并，答案保存到 ans 中
 
 class Solution {
