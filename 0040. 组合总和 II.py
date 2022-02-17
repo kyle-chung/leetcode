@@ -75,7 +75,8 @@ class Solution:
                 sequence.append(freq[pos][0])
                 dfs(pos + 1, rest - i * freq[pos][0])
             sequence = sequence[:-most]
-        
+            
+#       Counter是一个dict子类，主要是用来对你访问的对象的频率进行计数
         freq = sorted(collections.Counter(candidates).items())
         ans = list()
         sequence = list()
